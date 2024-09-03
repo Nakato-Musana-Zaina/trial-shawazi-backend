@@ -1,4 +1,5 @@
 from django.db import models
+from landDetails.models import LandTitleDetails
 
 class LandSeller(models.Model):
     owner_id = models.AutoField(primary_key=True)
@@ -11,7 +12,7 @@ class LandSeller(models.Model):
     created_at = models.DateField(auto_now_add=True)  # Changed to auto_now_add
     updated_at = models.DateField(auto_now=True)  # Corrected to updated_at
 
-    land_title_details = models.ForeignKey('LandTitleDetails', on_delete=models.CASCADE)
+    land_title_details = models.ForeignKey(LandTitleDetails, on_delete=models.CASCADE, related_name='titledetails')
 
     def __str__(self):
         return f"{self.user_name} {self.email}"
