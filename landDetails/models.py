@@ -15,7 +15,7 @@ class LandTitleDetails(models.Model):
         (RECREATIONAL, 'Recreational'),
     ]
 
-    land_details = models.ForeignKey('SearchDetail', on_delete=models.CASCADE)
+    # land_details = models.ForeignKey('SearchDetail', on_delete=models.CASCADE)
     parcel_number = models.CharField(max_length=50)
     ownership_type = models.CharField(max_length=255)
     property_address = models.CharField(max_length=255)

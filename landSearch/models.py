@@ -1,4 +1,5 @@
 from django.db import models
+from landDetails.models import LandTitleDetails
 
 class SearchDetails(models.Model):
     land_id = models.AutoField(primary_key=True)
@@ -14,7 +15,7 @@ class SearchDetails(models.Model):
     property_size = models.CharField(max_length=50)
     restrictions = models.CharField(max_length=255)
     mortgage_information = models.CharField(max_length=255)
-    land_title_details = models.OneToOneField('LandTitleDetails', on_delete=models.CASCADE)  # Use string reference
+    land_title_details = models.OneToOneField(LandTitleDetails, on_delete=models.CASCADE)  
 
     def __str__(self):
         return f"{self.title_number}, {self.owners_name}"
